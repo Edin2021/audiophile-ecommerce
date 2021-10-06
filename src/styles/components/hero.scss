@@ -1,0 +1,47 @@
+@use "../util" as *;
+
+.hero {
+  @include flexCenter(column);
+  justify-content: flex-start;
+  width: 100%;
+  height: 100vh;
+  background-color: $clr-primary;
+  .hero-center {
+    display: flex;
+    align-items: center;
+    width: $pageWidth;
+    height: 100%;
+    overflow: hidden;
+  }
+  .product-details {
+    flex: 1;
+    margin-bottom: 6rem;
+  }
+  .product-img {
+    flex: 1 20%;
+    img {
+      width: 100%;
+    }
+  }
+  .tag {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: $heading-xlarge;
+    text-transform: uppercase;
+    color: white;
+    margin: 2rem 0;
+  }
+
+  .desc {
+    font-size: $text;
+    margin-bottom: 2.5rem;
+  }
+
+  .product-btn a {
+    @include productButton(white, $clr-accent, $clr-accent);
+  }
+}

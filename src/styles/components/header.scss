@@ -1,0 +1,20 @@
+@use "../util" as *;
+
+header {
+  @include flexCenter(row);
+  width: 100%;
+
+  .header-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: $pageWidth;
+    border-bottom: 1px solid $clr-text;
+    padding: 1rem 0;
+  }
+  .company-name {
+    color: white;
+    font-size: $headeing-medium;
+    font-weight: 700;
+  }
+}

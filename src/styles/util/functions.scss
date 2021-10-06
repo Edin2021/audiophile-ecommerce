@@ -1,0 +1,21 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin productButton($color, $bgc, $brd-clr) {
+  padding: 0.75rem 1.75rem;
+  text-transform: uppercase;
+  color: $color;
+  background-color: $bgc;
+  border: 3px solid $brd-clr;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}

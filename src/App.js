@@ -1,12 +1,16 @@
-import data from "./data";
-import Hero from "./components/Hero";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
-  console.log(data);
   return (
-    <>
-      <Hero />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/products" />
+        <Route path="/single-product" />
+        <Route path="/checkout" />
+      </Switch>
+    </Router>
   );
 }
 

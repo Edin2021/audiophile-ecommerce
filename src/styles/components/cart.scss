@@ -1,0 +1,12 @@
+@use "../util" as *;
+
+.cart {
+  display: none;
+}
+
+.cart-btn {
+  color: white;
+  font-size: $headeing-medium;
+  padding: 1rem;
+  padding-right: 0;
+}
