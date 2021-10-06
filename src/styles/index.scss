@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+// color variablers
+$clr-primary: #424656;
+$clr-accent-1: #0688ff;
+$clr-accent-2: #8f6eff;
+$clr-heading: #102a42;
+$clr-text: #787878;
+$clr-red-light: #ff8d8d;
+$clr-red-dark: #751313;
+$clr-green-light: #57b894;
+
+// other variables
+$pageWidth: clamp(280px, 90%, 1200px);
+$mainHeading: 2.5rem;
+$sectionHeading: 1.75rem;
+$radius: 0.5rem;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: $clr-text;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+#root {
+  @include flexCenter(column);
+  width: 100%;
+  min-height: 100vh;
+  color: $clr-heading;
+}
+
+// accessibility
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+.hero {
+  width: 50px;
+  height: 50px;
+  background-color: $clr-accent-1;
+}
