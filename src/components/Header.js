@@ -1,14 +1,15 @@
 import Cart from "./Cart";
 import Nav from "./Nav";
 
-function Header() {
+function Header({ flag }) {
   return (
-    <header>
+    <header className={`${flag && "bcg-black"}`}>
       <div className="header-center">
         <span className="company-name">audiophile</span>
         <Nav />
         <Cart />
       </div>
+      {flag === "category" && <h1>Current Category</h1>}
     </header>
   );
 }

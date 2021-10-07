@@ -1,9 +1,10 @@
 @use "../util" as *;
 
 header {
-  @include flexCenter(row);
+  @include flexCenter(column);
   width: 100%;
-
+  margin-top: 0;
+  margin-bottom: auto;
   .header-center {
     display: flex;
     justify-content: space-between;
@@ -11,10 +12,21 @@ header {
     width: $pageWidth;
     border-bottom: 1px solid $clr-text;
     padding: 1rem 0;
+    position: relative;
   }
-  .company-name {
+
+  h1 {
     color: white;
-    font-size: $heading-medium;
-    font-weight: 700;
+    text-transform: uppercase;
+    margin: 4rem 0;
+    font-size: $heading-large;
+  }
+  nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.bcg-black {
+    background-color: $clr-primary;
   }
 }

@@ -1,7 +1,13 @@
+@use "../util" as *;
+
 nav a {
   padding: 1rem;
   color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
+  @include transition(opacity);
+  &:hover {
+    opacity: 0.7;
+  }
 }

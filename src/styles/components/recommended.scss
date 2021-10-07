@@ -1,0 +1,40 @@
+@use "../util" as *;
+
+.recommended {
+  h2,
+  .name {
+    text-align: center;
+    font-size: $heading-medium;
+    color: $clr-primary;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+  }
+}
+.recommended-items {
+  display: flex;
+  gap: 2rem;
+
+  .item {
+    flex: 1;
+  }
+  .img-wrapper {
+    height: 20rem;
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: $radius;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      padding: 2rem;
+    }
+  }
+  .name {
+    font-size: $heading-small;
+    margin: 2rem 0;
+  }
+  .product-btn {
+    @include productButton(white, $clr-accent, $clr-accent);
+    margin: 0 auto;
+  }
+}

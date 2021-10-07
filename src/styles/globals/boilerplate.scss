@@ -49,6 +49,44 @@ button {
   color: $clr-text;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  width: $pageWidth;
+  gap: 12rem;
+  margin: 12rem 0;
+  position: relative;
+}
+
+p {
+  font-size: $text;
+}
+
+.company-name {
+  color: white;
+  font-size: $heading-medium;
+  font-weight: 700;
+}
+
+.tag {
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.go-back-btn {
+  position: absolute;
+  transform: translateY(-5rem);
+  text-transform: capitalize;
+  font-size: $text;
+  color: $clr-text;
+  @include transition(opacity);
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 // accessibility
 .visually-hidden {
   clip: rect(0 0 0 0);

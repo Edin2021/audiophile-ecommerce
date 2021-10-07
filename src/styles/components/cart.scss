@@ -12,6 +12,15 @@
   background-color: white;
   padding: 2rem;
   border-radius: $radius;
+  z-index: -5;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(opacity);
+  &.active {
+    z-index: -5;
+    visibility: hidden;
+    opacity: 0;
+  }
   h4 {
     display: flex;
     justify-content: space-between;
@@ -55,6 +64,7 @@
       .price {
         font-size: $text-small;
         margin: 0.25rem 0;
+        letter-spacing: 1px;
       }
       .remove-item-btn {
         font-size: $text-xsmall;
@@ -70,7 +80,7 @@
       }
       button {
         font-size: $text;
-        transition: color 0.3s ease;
+        @include transition(color);
         &:hover {
           color: $clr-accent;
         }
@@ -86,10 +96,12 @@
     justify-content: space-between;
     align-items: center;
     font-size: $text;
+    font-weight: 500;
     span {
       color: $clr-primary;
       font-weight: 700;
       font-size: $heading-small;
+      letter-spacing: 1px;
     }
   }
   .checkout-btn a {
@@ -99,7 +111,8 @@
 
   .remove-all-btn,
   .remove-item-btn {
-    transition: opacity 0.3s ease;
+    color: $clr-text;
+    @include transition(opacity);
     &:hover {
       opacity: 0.7;
     }
@@ -111,4 +124,26 @@
   font-size: $heading-medium;
   padding: 1rem;
   padding-right: 0;
+  @include transition(color);
+  &:hover {
+    color: $clr-accent;
+  }
+}
+
+.bcg-blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.6);
+  z-index: -5;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(opacity);
+  &.active {
+    z-index: 5;
+    visibility: visible;
+    opacity: 1;
+  }
 }

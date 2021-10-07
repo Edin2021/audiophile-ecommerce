@@ -1,0 +1,116 @@
+@use "../util" as *;
+
+.home-products {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  & > div {
+    display: flex;
+    border-radius: $radius;
+  }
+  h2 {
+    text-transform: uppercase;
+  }
+
+  .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 50%;
+    padding: 0 6rem;
+    padding-right: 8rem;
+    z-index: 2;
+  }
+
+  .product-btn {
+    margin-top: 2rem;
+  }
+  .main-product {
+    background-color: $clr-accent;
+    overflow: hidden;
+    max-height: 575px;
+    .img-wrapper {
+      display: flex;
+      flex: 1;
+      max-height: max-content;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(2rem, 4rem);
+        z-index: 5;
+      }
+      // sound waves around main product image
+      .shadow-rings {
+        display: flex;
+        width: 20rem;
+        height: 20rem;
+        position: absolute;
+        top: 80%;
+        left: calc(50% + 2rem);
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px white, 0 0 0 70px $clr-accent, 0 0 0 72px white,
+          0 0 0 150px $clr-accent, 0 0 0 152px white, 0 0 0 360px $clr-accent,
+          0 0 0 362px white;
+        z-index: 1;
+        opacity: 0.1;
+      }
+    }
+
+    h2 {
+      font-size: $heading-xlarge;
+      color: white;
+      margin-bottom: 2rem;
+    }
+    .desc {
+      color: white;
+      line-height: 140%;
+    }
+    .product-btn {
+      @include productButton(white, $clr-primary, $clr-primary);
+      width: max-content;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+  .sub-product-1,
+  .sub-product-2 {
+    height: 320px;
+    h2 {
+      color: $clr-primary;
+      font-size: $heading-medium;
+    }
+    .product-btn {
+      @include productButton($clr-primary, none, $clr-primary);
+      width: max-content;
+    }
+  }
+  .sub-product-1 {
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: saturate(0) brightness(1.1);
+  }
+  .sub-product-2 {
+    gap: 2rem;
+    .img-wrapper {
+      flex: 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $radius;
+        filter: saturate(0) brightness(1.1);
+      }
+    }
+    .details {
+      background-color: rgb(0, 0, 0, 0.1);
+      border-radius: $radius;
+      flex: 1;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use "../util" as *;
+
+footer {
+  width: 100%;
+  height: max-content;
+  @include flexCenter(row);
+  background-color: $clr-primary;
+
+  .footer-center {
+    width: $pageWidth;
+    position: relative;
+  }
+
+  .underline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8rem;
+    height: 0.25rem;
+    background-color: $clr-accent;
+  }
+
+  .footer-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    margin-top: 4rem;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    p {
+      max-width: 50%;
+    }
+    .media-links {
+      margin-bottom: 0;
+      margin-top: auto;
+      a {
+        color: white;
+        font-size: $heading-medium;
+        padding: 0.75rem;
+        @include transition(opacity);
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    margin: 3rem 0;
+    margin-top: 4rem;
+  }
+}
