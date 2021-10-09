@@ -66,3 +66,10 @@
     border-radius: 50%;
   }
 }
+
+@media (max-width: $bp-tablet) {
+  .categories {
+    flex-direction: column;
+    gap: 7rem;
+  }
+}

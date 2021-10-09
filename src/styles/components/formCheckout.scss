@@ -1,0 +1,125 @@
+@use "../util" as *;
+
+.checkout {
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.form-wrapper {
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: $radius;
+}
+
+.form-checkout {
+  max-width: 70%;
+  flex: 3;
+  input {
+    border: 1px solid rgb(180, 180, 180);
+    outline: none;
+    font-size: $text-small;
+    color: $clr-text;
+    padding: 1rem 1.5rem;
+    border-radius: $radius;
+    width: 100%;
+  }
+  h1 {
+    font-size: $heading-medium;
+    text-transform: uppercase;
+    color: $clr-primary;
+  }
+
+  h3 {
+    font-size: $heading-xsmall;
+    text-transform: uppercase;
+    color: $clr-accent;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: $text;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: $clr-primary;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .input-radios label {
+    flex-direction: column;
+  }
+
+  .billing-details .input-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .shipping-info .input-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    // address input field
+    label:first-of-type {
+      grid-column: 1 / 3;
+    }
+  }
+  .payment-details .input-fields {
+    // address input field
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    & > label:first-of-type {
+      display: flex;
+      flex-direction: row;
+      grid-column: 1 / 3;
+      gap: 1.5rem;
+      & > span {
+        flex: 1;
+      }
+      .input-radios {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        label {
+          border: 1px solid rgb(180, 180, 180);
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1rem 1.5rem;
+          border-radius: $radius;
+
+          span::first-letter {
+            text-transform: lowercase;
+          }
+          input {
+            transform: scale(1.5);
+            margin: 0;
+            margin-right: 1rem;
+            width: initial;
+          }
+        }
+      }
+    }
+  }
+  .delivery-info {
+    grid-column: 1 / 3;
+    display: flex;
+    align-items: center;
+    .icon {
+      font-size: $heading-large;
+      margin: 0 2rem;
+    }
+    p {
+      font-size: $text-small;
+    }
+  }
+}

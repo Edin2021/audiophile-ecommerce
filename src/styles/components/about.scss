@@ -32,3 +32,35 @@
     }
   }
 }
+
+@media (max-width: $bp-laptop) {
+  .about {
+    flex-direction: column;
+    gap: 6rem;
+    max-height: none;
+    .details {
+      order: 2;
+      max-width: 100%;
+      text-align: center;
+      padding: 0;
+    }
+    .img-wrapper {
+      order: 1;
+      max-height: 40vh;
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .about {
+    gap: 3rem;
+    .details {
+      h2 {
+        font-size: 8vw;
+      }
+      p {
+        font-size: 5vw;
+      }
+    }
+  }
+}

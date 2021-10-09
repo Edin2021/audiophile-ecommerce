@@ -87,6 +87,19 @@ p {
   }
 }
 
+.bcg-blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.6);
+  z-index: -5;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(opacity);
+}
+
 // accessibility
 .visually-hidden {
   clip: rect(0 0 0 0);

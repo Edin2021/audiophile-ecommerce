@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import SingleProduct from "./pages/SingleProduct";
@@ -10,7 +11,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/products" component={Products} />
         <Route path="/single-product" component={SingleProduct} />
-        <Route path="/checkout" />
+        <Route path="/checkout" component={Checkout} />
       </Switch>
     </Router>
   );

@@ -1,7 +1,8 @@
-// color variables
+// colors
 $clr-primary: #171717;
 $clr-accent: #d87c49;
 $clr-text: #696969;
+$clr-text-light: #bebebe;
 $clr-red-light: #ff8d8d;
 $clr-red-dark: #751313;
 $clr-green-light: #57b894;
@@ -18,12 +19,10 @@ $text-xsmall: 1rem;
 
 // other variables
 $pageWidth: clamp(280px, 90%, 1200px);
-$mainHeading: 2.5rem;
-$sectionHeading: 1.75rem;
 $radius: 0.5rem;
 
 // breakpoints (max-width)
-$bp-desktop: 1050px;
+$bp-desktop: 1150px;
 $bp-laptop: 992px;
 $bp-tablet: 768px;
 $bp-phone: 600px;

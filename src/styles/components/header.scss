@@ -30,3 +30,83 @@ header {
     background-color: $clr-primary;
   }
 }
+
+.menu-btn {
+  display: flex;
+  font-size: $heading-medium;
+  color: white;
+  padding: 1rem;
+  padding-left: 0;
+  display: none;
+}
+
+.close-menu-btn {
+  display: flex;
+  font-size: $heading-medium;
+  color: $clr-text;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+@media (max-width: $bp-laptop) {
+  header {
+    .company-name {
+      margin-left: 2rem;
+      margin-right: auto;
+    }
+    .menu-btn {
+      display: flex;
+    }
+
+    .close-menu-btn {
+      display: flex;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: clamp(280px, 100%, 500px);
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      transform: translateX(-100%);
+      transition-duration: 0.6s;
+      @include transition(transform);
+      background-color: white;
+      z-index: 10;
+      a {
+        color: $clr-text;
+        font-size: $heading-small;
+        text-align: center;
+        padding: 5vh 0;
+      }
+    }
+    &.menu-open {
+      nav {
+        transform: translateX(0);
+      }
+      .bcg-blur {
+        z-index: 5;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  header {
+    .company-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: $heading-small;
+      margin: 0;
+    }
+  }
+}

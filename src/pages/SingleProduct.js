@@ -11,7 +11,7 @@ import Categories from "../components/Categories";
 function SingleProduct() {
   return (
     <>
-      <Header flag={true} />
+      <Header flag={"bcg-black"} />
 
       <main className="single-product">
         {/* Will go to the previous page */}

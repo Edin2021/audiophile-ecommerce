@@ -54,3 +54,90 @@ footer {
     margin-top: 4rem;
   }
 }
+
+@media (max-width: $bp-laptop) {
+  footer {
+    .footer-headline {
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+      nav {
+        margin-top: 2rem;
+        a:first-of-type {
+          padding-left: 0;
+        }
+      }
+    }
+    .info {
+      p {
+        max-width: 100%;
+      }
+      .media-links {
+        margin: 0;
+        position: absolute;
+        bottom: 2rem;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  footer {
+    .company-name {
+      text-align: center;
+    }
+    .footer-headline {
+      flex-direction: column;
+      justify-content: unset;
+      align-items: unset;
+      nav {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        a {
+          padding: 1rem 0;
+          font-size: $text;
+          text-align: center;
+        }
+      }
+    }
+    .info {
+      p {
+        text-align: center;
+      }
+      .media-links {
+        margin: 0;
+        position: absolute;
+        bottom: 2rem;
+        right: 0;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        width: max-content;
+        a {
+          display: flex;
+        }
+      }
+    }
+    .copyright {
+      text-align: center;
+      margin-bottom: 8rem;
+    }
+    .underline {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  footer {
+    .info p {
+      font-size: 5vw;
+    }
+    .copyright {
+      font-size: 4vw;
+    }
+  }
+}

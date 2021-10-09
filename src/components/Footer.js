@@ -1,5 +1,6 @@
 import Nav from "./Nav";
 import { FaFacebookSquare, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,7 +8,9 @@ function Footer() {
       <div className="footer-center">
         <span className="underline"></span>
         <div className="footer-headline">
-          <span className="company-name">audiophile</span>
+          <Link to="/" className="company-name">
+            audiophile
+          </Link>
           <Nav />
         </div>
         <article className="info">
