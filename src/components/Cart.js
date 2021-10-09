@@ -2,11 +2,15 @@ import { BsCart3 } from "react-icons/bs";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 import tempImage from "../images/xx99-mark-II.png";
-function Cart() {
+function Cart({ setCartOpen, cartOpen }) {
   return (
     <>
       <div className="cart-wrapper">
-        <button type="button" className="cart-btn">
+        <button
+          type="button"
+          className="cart-btn"
+          onClick={() => setCartOpen(!cartOpen)}
+        >
           <span className="visually-hidden">open cart button</span>
           <BsCart3 />
         </button>
@@ -119,7 +123,6 @@ function Cart() {
           </button>
         </section>
       </div>
-      <div className="bcg-blur"></div>
     </>
   );
 }

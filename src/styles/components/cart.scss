@@ -149,13 +149,16 @@
 
 header {
   &.cart-open {
+    .cart-wrapper {
+      z-index: 15;
+    }
     .cart {
-      z-index: 6;
+      z-index: 5;
       visibility: visible;
       opacity: 1;
     }
     .bcg-blur {
-      z-index: 5;
+      z-index: 10;
       visibility: visible;
       opacity: 1;
     }

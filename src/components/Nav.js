@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 
-function Nav() {
+function Nav({ setMenuOpen }) {
   return (
     <nav>
-      <button type="button" className="close-menu-btn">
+      <button
+        type="button"
+        className="close-menu-btn"
+        onClick={() => setMenuOpen(false)}
+      >
         <span className="visually-hidden">close menu button</span>
         <FaTimes />
       </button>
