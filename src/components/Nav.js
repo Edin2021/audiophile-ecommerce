@@ -13,9 +13,9 @@ function Nav({ setMenuOpen }) {
         <FaTimes />
       </button>
       <Link to="/">home</Link>
-      <Link to="/products">headphones</Link>
-      <Link to="/products">speakers</Link>
-      <Link to="/products">earphones</Link>
+      <Link to="/products/headphones">headphones</Link>
+      <Link to="/products/speakers">speakers</Link>
+      <Link to="/products/earphones">earphones</Link>
     </nav>
   );
 }

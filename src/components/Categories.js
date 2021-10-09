@@ -7,7 +7,7 @@ import earphones from "../images/earphones.png";
 function Categories() {
   return (
     <section className="categories">
-      <Link to="/products">
+      <Link to="/products/headphones">
         <article className="category">
           <div className="img-wrapper">
             <img src={headphones} alt="" />
@@ -23,7 +23,7 @@ function Categories() {
           </div>
         </article>
       </Link>
-      <Link to="/products">
+      <Link to="/products/speakers">
         <article className="category">
           <div className="img-wrapper">
             <img src={speakers} alt="" />
@@ -39,7 +39,7 @@ function Categories() {
           </div>
         </article>
       </Link>
-      <Link to="/products">
+      <Link to="/products/earphones">
         <article className="category">
           <div className="img-wrapper">
             <img src={earphones} alt="" />

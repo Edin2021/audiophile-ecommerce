@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Product from "../components/Product";
 
 function Products() {
+  console.log(window.location.pathname);
   return (
     <>
       <Header flag={"category"} />
