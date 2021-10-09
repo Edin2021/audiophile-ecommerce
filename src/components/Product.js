@@ -8,6 +8,7 @@ function Product() {
         <img src={tempImage} alt="" />
       </div>
       <article className="details">
+        <span className="tag">new product</span>
         <h2 className="name">xx99 mark ii headphones</h2>
         <p className="desc">
           The new xx99 MARK II headphones is the pinacle of pristine audio. It

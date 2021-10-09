@@ -38,3 +38,35 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: $bp-laptop) {
+  .recommended-items {
+    .img-wrapper {
+      height: unset;
+      height: 15rem;
+      img {
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .recommended-items {
+    flex-direction: column;
+    .img-wrapper {
+      height: 17.5rem;
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .recommended {
+    h2 {
+      font-size: 9vw;
+    }
+    .recommended-items {
+      gap: 4rem;
+    }
+  }
+}

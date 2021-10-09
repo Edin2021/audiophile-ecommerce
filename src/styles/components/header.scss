@@ -39,6 +39,7 @@ header {
   padding: 1rem;
   padding-left: 0;
   display: none;
+  z-index: 2;
 }
 
 .close-menu-btn {
@@ -108,6 +109,10 @@ header {
       transform: translateX(-50%);
       font-size: $heading-small;
       margin: 0;
+    }
+    h1 {
+      font-size: 10vw;
+      text-align: center;
     }
   }
 }
