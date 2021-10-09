@@ -52,30 +52,24 @@
     }
   }
 
-  .input-radios label {
-    flex-direction: column;
-  }
-
-  .billing-details .input-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+  .billing-details,
+  .shipping-info,
+  .payment-details {
+    .input-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
   }
 
   .shipping-info .input-fields {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
     // address input field
     label:first-of-type {
       grid-column: 1 / 3;
     }
   }
   .payment-details .input-fields {
-    // address input field
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    // payment method
     & > label:first-of-type {
       display: flex;
       flex-direction: row;
@@ -88,7 +82,7 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1rem;
         label {
           border: 1px solid rgb(180, 180, 180);
           display: flex;
@@ -120,6 +114,72 @@
     }
     p {
       font-size: $text-small;
+    }
+  }
+}
+
+@media (max-width: $bp-desktop) {
+  .checkout {
+    flex-direction: column;
+  }
+  .form-checkout {
+    max-width: 100%;
+    flex: 1;
+  }
+}
+
+@media (max-width: $bp-laptop) {
+  .form-checkout {
+    .billing-details,
+    .shipping-info,
+    .payment-details {
+      .input-fields {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+    .shipping-info .input-fields {
+      // address input field
+      label:first-of-type {
+        grid-column: unset;
+      }
+    }
+
+    .payment-details .input-fields {
+      // payment method
+      & > label:first-of-type {
+        flex-direction: column;
+        grid-column: unset;
+      }
+    }
+
+    .delivery-info {
+      grid-column: unset;
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .form-wrapper {
+    padding: 1.5rem;
+    h1 {
+      font-size: 9vw;
+    }
+    h3 {
+      font-size: 5vw;
+    }
+    input {
+      font-size: 4vw;
+      padding: 1em;
+    }
+    label {
+      font-size: 4.5vw;
+    }
+    .delivery-info {
+      flex-direction: column;
+      p {
+        font-size: 4.5vw;
+      }
     }
   }
 }

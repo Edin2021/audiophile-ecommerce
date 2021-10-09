@@ -99,3 +99,75 @@
     width: 100%;
   }
 }
+
+@media (max-width: $bp-desktop) {
+  .summary {
+    max-width: 100%;
+    padding: 2rem 3rem;
+    .item {
+      .img-wrapper {
+        width: 150px;
+        height: 150px;
+      }
+      .details {
+        margin: 0 2rem;
+        .name,
+        .price {
+          font-size: $heading-medium;
+        }
+      }
+      .quantity {
+        font-size: $heading-medium;
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
+    .expenses {
+      gap: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: $bp-tablet) {
+  .summary {
+    padding: 2rem 3rem;
+    .item {
+      .img-wrapper {
+        width: 100px;
+        height: 100px;
+      }
+      .details {
+        .name,
+        .price {
+          font-size: $heading-small;
+        }
+      }
+      .quantity {
+        font-size: $heading-small;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .summary {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+    .item {
+      .img-wrapper {
+        min-width: 75px;
+        width: 75px;
+        height: 75px;
+      }
+      .details {
+        .name,
+        .price {
+          font-size: 5vw;
+        }
+      }
+      .quantity {
+        font-size: 5vw;
+      }
+    }
+  }
+}
