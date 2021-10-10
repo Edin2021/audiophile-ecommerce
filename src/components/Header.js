@@ -5,7 +5,7 @@ import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 
 // The flag is used to add a black background color to the header when user is not on home page and to display current category when on products page
-function Header({ flag }) {
+function Header({ flag, currCategory }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -37,7 +37,7 @@ function Header({ flag }) {
         <Nav setMenuOpen={setMenuOpen} />
         <Cart setCartOpen={setCartOpen} cartOpen={cartOpen} />
       </div>
-      {flag === "category" && <h1>Current Category</h1>}
+      {flag === "category" && <h1>{currCategory}</h1>}
     </header>
   );
 }

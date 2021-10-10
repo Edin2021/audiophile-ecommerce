@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Recommended from "../components/Recommended";
 import About from "../components/About";
 import Categories from "../components/Categories";
 import data from "../data";
+import GoBackButton from "../components/GoBackButton";
 
 const productPlaceholder = {
   id: "",
@@ -28,9 +28,11 @@ function SingleProduct() {
   const [loaded, setLoaded] = useState(false);
   const [recommendedItemIds, setRecommendedItemIds] = useState([]);
   const currProductId = useParams("id").id;
+
   useEffect(() => {
     setCurrProduct(data.find((product) => product.id === currProductId));
     const temp = [];
+    // get three recommended products
     while (temp.length < 3) {
       const randomProduct = data[Math.floor(Math.random() * data.length)];
       if (
@@ -66,14 +68,13 @@ function SingleProduct() {
   const productOnTabel = require(`../images/${name
     .split(" ")
     .join("-")}-on-table.png`).default;
+
   return (
     <>
       <Header flag={"bcg-black"} />
       <main className="single-product">
         {/* Will go to the previous page */}
-        <Link className="go-back-btn" to="/">
-          go back
-        </Link>
+        <GoBackButton />
         <section className="product">
           <div className="img-wrapper">
             <img src={img} alt="" />

@@ -15,7 +15,7 @@ function Products() {
 
   return (
     <>
-      <Header flag={"category"} />
+      <Header flag={"category"} currCategory={currCategory} />
       {/* dinamically add products */}
       <main className="products">
         {currList.map((listItem) => (

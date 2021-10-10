@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { GrDeliver } from "react-icons/gr";
+import GoBackButton from "./GoBackButton";
 
 function FormCheckout() {
   return (
     <form className="form-checkout">
-      <Link className="go-back-btn" to="/">
-        go back
-      </Link>
+      <GoBackButton />
       <div className="form-wrapper">
         <h1>checkout</h1>
         <section className="billing-details">
