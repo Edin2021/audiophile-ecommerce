@@ -16,34 +16,35 @@
 
   .item {
     flex: 1;
+    @include flexCenter(column);
   }
   .img-wrapper {
-    height: 20rem;
+    width: 100%;
+    height: 300px;
     background-color: rgb(0, 0, 0, 0.1);
     border-radius: $radius;
+    overflow: hidden;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      padding: 2rem;
+      border-radius: $radius;
     }
   }
   .name {
     font-size: $heading-small;
     margin: 2rem 0;
   }
-  .product-btn {
+  .product-btn a {
     @include productButton(white, $clr-accent, $clr-accent);
-    margin: 0 auto;
   }
 }
 
 @media (max-width: $bp-laptop) {
   .recommended-items {
     .img-wrapper {
-      height: unset;
-      height: 15rem;
+      height: 250px;
       img {
         padding: 0;
       }
@@ -54,6 +55,7 @@
 @media (max-width: $bp-tablet) {
   .recommended-items {
     flex-direction: column;
+    gap: 5rem;
     .img-wrapper {
       height: 17.5rem;
     }

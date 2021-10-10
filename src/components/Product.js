@@ -1,22 +1,19 @@
 import { Link } from "react-router-dom";
-import tempImage from "../images/xx99-mark-I.png";
 
-function Product() {
+function Product({ listItem }) {
+  const { id, img, newProduct, name, desc, category } = listItem;
+
   return (
     <section className="product">
       <div className="img-wrapper">
-        <img src={tempImage} alt="" />
+        <img src={img} alt="" />
       </div>
       <article className="details">
-        <span className="tag">new product</span>
-        <h2 className="name">xx99 mark ii headphones</h2>
-        <p className="desc">
-          The new xx99 MARK II headphones is the pinacle of pristine audio. It
-          redefines your premium headphone experience by reducing the balanced
-          depth and presure of studio-quality sound.
-        </p>
+        <span className="tag">{newProduct && "new product"}</span>
+        <h2 className="name">{`${name} ${category}`}</h2>
+        <p className="desc">{desc}</p>
         <button type="button" className="product-btn">
-          <Link to="/single-product"> see product</Link>
+          <Link to={`/single-product/${id}`}> see product</Link>
         </button>
       </article>
     </section>

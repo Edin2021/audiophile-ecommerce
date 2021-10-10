@@ -1,7 +1,7 @@
 import { BsCart3 } from "react-icons/bs";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
-import tempImage from "../images/xx99-mark-II.png";
+import tempImage from "../images/xx99-mark-ii.png";
 function Cart({ setCartOpen, cartOpen }) {
   return (
     <>

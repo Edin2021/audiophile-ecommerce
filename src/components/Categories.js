@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
-import headphones from "../images/xx99-mark-I.png";
+import headphones from "../images/xx99-mark-i.png";
 import speakers from "../images/zx9.png";
 import earphones from "../images/earphones.png";
 

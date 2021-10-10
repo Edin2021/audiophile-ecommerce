@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import tempImage from "../images/xx99-mark-I.png";
+import tempImage from "../images/xx99-mark-i.png";
 
 function CartSummary() {
   return (

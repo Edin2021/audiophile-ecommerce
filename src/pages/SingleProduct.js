@@ -1,18 +1,74 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import tempImage from "../images/xx99-mark-II.png";
-import tempImage2 from "../images/xx99-mark-II-on-table.png";
-import tempImage3 from "../images/xx99-mark-II-in-person.png";
 import Recommended from "../components/Recommended";
 import About from "../components/About";
 import Categories from "../components/Categories";
+import data from "../data";
+
+const productPlaceholder = {
+  id: "",
+  img: "",
+  name: "",
+  category: "",
+  newProduct: "",
+  desc: "",
+  price: "",
+  features: {
+    p1: "",
+    p2: "",
+  },
+  boxContent: [],
+};
 
 function SingleProduct() {
+  const [currProduct, setCurrProduct] = useState({});
+  const [loaded, setLoaded] = useState(false);
+  const [recommendedItemIds, setRecommendedItemIds] = useState([]);
+  const currProductId = useParams("id").id;
+  useEffect(() => {
+    setCurrProduct(data.find((product) => product.id === currProductId));
+    const temp = [];
+    while (temp.length < 3) {
+      const randomProduct = data[Math.floor(Math.random() * data.length)];
+      if (
+        randomProduct.id !== currProductId &&
+        !temp.includes(randomProduct.id)
+      ) {
+        temp.push(randomProduct.id);
+      }
+    }
+    setRecommendedItemIds(temp);
+    setLoaded(true);
+  }, [currProductId]);
+
+  if (!loaded) {
+    return <h1>Loading...</h1>;
+  }
+  const {
+    id,
+    img,
+    name,
+    category,
+    newProduct,
+    desc,
+    price,
+    features,
+    boxContent,
+  } = currProduct;
+  const { p1, p2 } = features;
+
+  const productInPerson = require(`../images/${name
+    .split(" ")
+    .join("-")}-in-person.png`).default;
+  const productOnTabel = require(`../images/${name
+    .split(" ")
+    .join("-")}-on-table.png`).default;
   return (
     <>
       <Header flag={"bcg-black"} />
-
       <main className="single-product">
         {/* Will go to the previous page */}
         <Link className="go-back-btn" to="/">
@@ -20,17 +76,13 @@ function SingleProduct() {
         </Link>
         <section className="product">
           <div className="img-wrapper">
-            <img src={tempImage} alt="" />
+            <img src={img} alt="" />
           </div>
           <article className="details">
-            <span className="tag">New product</span>
-            <h1 className="name">xx99 mark ii headphones</h1>
-            <p className="desc">
-              The new xx99 MARK II headphones is the pinacle of pristine audio.
-              It redefines your premium headphone experience by reducing the
-              balanced depth and presure of studio-quality sound.
-            </p>
-            <span className="price">$ 2,999</span>
+            <span className="tag">{newProduct && "new product"}</span>
+            <h1 className="name">{`${name} ${category}`}</h1>
+            <p className="desc">{desc}</p>
+            <span className="price">$ {price}</span>
             <div className="user-input">
               <label>
                 <span className="visually-hidden">product amount</span>
@@ -45,49 +97,32 @@ function SingleProduct() {
         <section className="info">
           <article className="features">
             <h2>features</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              suscipit tempora eius, eligendi quos rem impedit necessitatibus
-              culpa qui repellat alias quisquam soluta, consequuntur magni quam
-              nesciunt nam laudantium. Assumenda unde ad repellendus ipsa
-              eligendi! Perferendis similique maxime labore. Eos alias dolore
-              aperiam impedit exercitationem laborum, necessitatibus ullam.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              eum iste reiciendis? Consectetur rem dolores, iure numquam
-              consequuntur quas explicabo tenetur architecto deleniti eius
-              reprehenderit soluta ipsum expedita? Iusto, ea. Vitae esse
-              numquam, facilis, deleniti libero consequuntur debitis asperiores
-              quis, corporis incidunt molestiae aspernatur. Nihil commodi in
-              obcaecati blanditiis alias tenetur autem, ipsa iure ratione?
-            </p>
+            <p>{p1}</p>
+            <p>{p2}</p>
           </article>
           <article className="box-contents">
             <h2>in the box</h2>
             <ul>
-              <li>
-                <span>1x</span> headphone unit
-              </li>
-              <li>replacement earcups</li>
-              <li>user manual</li>
-              <li>3.5mm 5m audio cable</li>
-              <li>travel bag</li>
+              {boxContent.map((boxItem, i) => (
+                <li key={i}>
+                  <span>{boxItem.quantity}x</span> {boxItem.item}
+                </li>
+              ))}
             </ul>
           </article>
         </section>
         <section className="gallery">
           <div className="picture-sm">
-            <img src={tempImage3} alt="" />
+            <img src={productInPerson} alt="" />
           </div>
           <div className="picture-bg">
-            <img src={tempImage} alt="" />
+            <img src={img} alt="" />
           </div>
           <div className="picture-sm">
-            <img src={tempImage2} alt="" />
+            <img src={productOnTabel} alt="" />
           </div>
         </section>
-        <Recommended />
+        <Recommended recommendedItemIds={recommendedItemIds} />
         <Categories />
         <About />
       </main>
