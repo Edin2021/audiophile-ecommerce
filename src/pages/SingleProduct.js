@@ -7,27 +7,28 @@ import About from "../components/About";
 import Categories from "../components/Categories";
 import data from "../data";
 import GoBackButton from "../components/GoBackButton";
-
-const productPlaceholder = {
-  id: "",
-  img: "",
-  name: "",
-  category: "",
-  newProduct: "",
-  desc: "",
-  price: "",
-  features: {
-    p1: "",
-    p2: "",
-  },
-  boxContent: [],
-};
+import { useGlobalContext } from "../context";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 function SingleProduct() {
   const [currProduct, setCurrProduct] = useState({});
+  const [amount, setAmount] = useState(1);
   const [loaded, setLoaded] = useState(false);
   const [recommendedItemIds, setRecommendedItemIds] = useState([]);
+
   const currProductId = useParams("id").id;
+
+  const { addToCart } = useGlobalContext();
+
+  const addAmount = () => {
+    if (amount === 10) return;
+    setAmount((prevValue) => prevValue + 1);
+  };
+
+  const subtractAmount = () => {
+    if (amount === 1) return;
+    setAmount((prevValue) => prevValue - 1);
+  };
 
   useEffect(() => {
     setCurrProduct(data.find((product) => product.id === currProductId));
@@ -49,6 +50,7 @@ function SingleProduct() {
   if (!loaded) {
     return <h1>Loading...</h1>;
   }
+
   const {
     id,
     img,
@@ -60,6 +62,7 @@ function SingleProduct() {
     features,
     boxContent,
   } = currProduct;
+
   const { p1, p2 } = features;
 
   const productInPerson = require(`../images/${name
@@ -73,7 +76,6 @@ function SingleProduct() {
     <>
       <Header flag={"bcg-black"} />
       <main className="single-product">
-        {/* Will go to the previous page */}
         <GoBackButton />
         <section className="product">
           <div className="img-wrapper">
@@ -85,11 +87,39 @@ function SingleProduct() {
             <p className="desc">{desc}</p>
             <span className="price">$ {price}</span>
             <div className="user-input">
-              <label>
-                <span className="visually-hidden">product amount</span>
-                <input type="number" value={1} />
-              </label>
-              <button type="button" className="product-btn">
+              <div className="amount-btn-wrapper">
+                <button
+                  type="button"
+                  className="change-amount-btn"
+                  onClick={subtractAmount}
+                >
+                  <span className="visually-hidden">
+                    decrease item add to cart amount
+                  </span>
+                  <FaMinus aria-hidden="true" />
+                </button>
+                <label>
+                  <span className="visually-hidden">
+                    product amount {amount}
+                  </span>
+                  <input type="number" value={amount} readOnly />
+                </label>
+                <button
+                  type="button"
+                  className="change-amount-btn"
+                  onClick={addAmount}
+                >
+                  <span className="visually-hidden">
+                    increase item add to cart amount
+                  </span>
+                  <FaPlus aria-hidden="true" />
+                </button>
+              </div>
+              <button
+                type="button"
+                className="product-btn"
+                onClick={() => addToCart(id, amount)}
+              >
                 add to cart
               </button>
             </div>

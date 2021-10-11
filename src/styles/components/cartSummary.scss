@@ -34,7 +34,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        padding: 0.25rem;
+        border-radius: $radius;
       }
     }
     .details {
@@ -94,9 +94,10 @@
       color: $clr-accent;
     }
   }
-  .confirm-purchase-btn a {
+  .confirm-purchase-btn {
     @include productButton(white, $clr-accent, $clr-accent);
     width: 100%;
+    justify-content: center;
   }
 }
 
@@ -104,6 +105,9 @@
   .summary {
     max-width: 100%;
     padding: 2rem 3rem;
+    .items {
+      gap: 3rem;
+    }
     .item {
       .img-wrapper {
         width: 150px;
@@ -113,11 +117,11 @@
         margin: 0 2rem;
         .name,
         .price {
-          font-size: $heading-medium;
+          font-size: $heading-small;
         }
       }
       .quantity {
-        font-size: $heading-medium;
+        font-size: $heading-small;
         margin-right: 0;
         margin-left: auto;
       }
@@ -153,6 +157,9 @@
   .summary {
     max-width: 100%;
     padding: 2rem 1.5rem;
+    .items {
+      gap: 2rem;
+    }
     .item {
       .img-wrapper {
         min-width: 75px;

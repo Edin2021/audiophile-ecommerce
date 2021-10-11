@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import data from "../data";
-import zx9_speaker from "../images/zx9.png";
-import zx7_speaker from "../images/zx7-on-table.png";
-import yx1_earphones from "../images/yx1.png";
 import { Link } from "react-router-dom";
 
 const productPlaceholder = {

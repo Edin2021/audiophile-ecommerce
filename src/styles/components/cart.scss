@@ -43,7 +43,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 30vh;
+    max-height: 30vh;
     overflow-y: auto;
   }
   .item {
@@ -137,13 +137,27 @@
 }
 
 .cart-btn {
-  color: white;
+  position: relative;
   font-size: $heading-medium;
   padding: 1rem;
   padding-right: 0;
+
+  color: white;
   @include transition(color);
   &:hover {
     color: $clr-accent;
+  }
+  .cart-amount-icon {
+    @include flexCenter(row);
+    position: absolute;
+    left: 0.25rem;
+    top: 0.25rem;
+    background-color: $clr-accent;
+    font-size: $text-small;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    color: white;
   }
 }
 
@@ -176,7 +190,7 @@ header {
       }
     }
     .items {
-      height: 45vh;
+      max-height: 45vh;
     }
     .item {
       .img-wrapper {
@@ -203,10 +217,15 @@ header {
           padding: 0.5rem 1rem;
         }
         button:first-of-type {
-          transform: rotate(-90deg);
+          order: 3;
+          transform: rotate(90deg);
         }
         button:last-of-type {
-          transform: rotate(-90deg);
+          order: 1;
+          transform: rotate(90deg);
+        }
+        .quantity {
+          order: 2;
         }
       }
     }
