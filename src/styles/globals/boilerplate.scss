@@ -171,10 +171,10 @@ input[type="number"] {
 
 // custom radio buttons, works except on firefox
 input[type="radio"]:after {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
-  top: -5px;
+  top: -4px;
   left: -1px;
   position: relative;
   background-color: #d1d3d1;
@@ -185,10 +185,10 @@ input[type="radio"]:after {
 }
 
 input[type="radio"]:checked:after {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 15px;
-  top: -5px;
+  top: -4px;
   left: -1px;
   position: relative;
   background-color: $clr-accent;
