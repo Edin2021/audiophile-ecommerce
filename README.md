@@ -1,6 +1,6 @@
-# PROJECT NAME
+# Audiophile E-Commerce
 
-This is an e-commerce website where users can see products, add them to the cart and go through the purchase process with a order confirmation message at the end.
+This is an e-commerce website where users can see products, add them to the cart and go through the purchase process with an order confirmation message at the end.
 
 ## [Website Link](https://364214fa.audiophile-ecommerce.pages.dev/)
 
