@@ -1,21 +1,12 @@
 # PROJECT NAME
 
-Project description
+This is an e-commerce website where users can see products, add them to the cart and go through the purchase process with a order confirmation message at the end.
 
-## Link to project
+## [Website Link](https://364214fa.audiophile-ecommerce.pages.dev/)
 
-## How to...
+## User can
 
-1. You do step one
-2. You do the next step
-3. ...
-
-## User stories
-
-user can...
-
-## Features
-
-behind the scenes
-
-## Featrues that could be added in the future
+- See each product individually
+- Add up to 10 products at once
+- Remove products from cart
+- Go through a purchase process with form validation and more...
