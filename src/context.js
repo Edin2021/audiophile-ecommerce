@@ -22,12 +22,6 @@ export default function AppProvider({ children }) {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  useEffect(() => {
-    if (showModal) {
-      setCartItems([]);
-    }
-  }, [showModal]);
-
   const addToCart = (id, amount) => {
     // checking if cart already contains the item
     // using for loop instead of the some() array method for better performance
@@ -122,6 +116,7 @@ export default function AppProvider({ children }) {
       value={{
         addToCart,
         cartItems,
+        setCartItems,
         addCartItemAmount,
         subtractCartItemAmount,
         calcCartTotal,

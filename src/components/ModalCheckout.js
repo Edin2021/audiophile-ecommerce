@@ -11,9 +11,9 @@ const itemPlaceholder = {
 };
 
 function ModalCheckout() {
-  const { showModal, setShowModal, cartItems, grandTotal } = useGlobalContext();
+  const { showModal, setShowModal, cartItems, setCartItems, grandTotal } =
+    useGlobalContext();
   const [modalItem, setModalItem] = useState(itemPlaceholder);
-  console.log(cartItems);
 
   useEffect(() => {
     if (cartItems.length > 0) {
@@ -22,7 +22,6 @@ function ModalCheckout() {
   }, [cartItems]);
 
   const { img, name, price, quantity } = modalItem;
-  // console.log(modalItem);
 
   return (
     <section className={`modal-bcg ${showModal && "show"}`}>
@@ -57,7 +56,14 @@ function ModalCheckout() {
             <span>$ {grandTotal}</span>
           </div>
         </article>
-        <Link onClick={() => setShowModal(false)} className="home-btn" to="/">
+        <Link
+          onClick={() => {
+            setShowModal(false);
+            setCartItems([]);
+          }}
+          className="home-btn"
+          to="/"
+        >
           back to home
         </Link>
       </div>
