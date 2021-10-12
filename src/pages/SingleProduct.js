@@ -43,6 +43,7 @@ function SingleProduct() {
         temp.push(randomProduct.id);
       }
     }
+    setAmount(1);
     setRecommendedItemIds(temp);
     setLoaded(true);
   }, [currProductId]);

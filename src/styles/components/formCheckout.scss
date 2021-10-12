@@ -3,6 +3,9 @@
 .checkout {
   flex-direction: row;
   gap: 2rem;
+  & > h2 {
+    text-align: center;
+  }
 }
 
 .form-wrapper {
@@ -24,8 +27,17 @@
     font-size: $text-small;
     color: $clr-text;
     padding: 1rem 1.5rem;
-    border-radius: $radius;
-    width: 100%;
+    border-radius: $radius-small;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+    &:focus {
+      border: 1px solid $clr-accent;
+      box-shadow: 0 0 6px $clr-accent;
+    }
+  }
+
+  .user-message + input {
+    border: 1px solid $clr-red-light;
+    box-shadow: 0 0 6px $clr-red-light;
   }
   h1 {
     font-size: $heading-medium;
@@ -47,6 +59,8 @@
     color: $clr-primary;
     display: flex;
     flex-direction: column;
+    position: relative;
+    margin-bottom: 0.5rem;
     input {
       margin-top: 0.5rem;
     }
@@ -99,6 +113,10 @@
             margin: 0;
             margin-right: 1rem;
             width: initial;
+            &:focus {
+              box-shadow: none;
+              border: initial;
+            }
           }
         }
       }

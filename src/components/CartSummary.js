@@ -1,19 +1,19 @@
+import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 const VAT = 0.2;
 const SHIPPING = 50;
 
 function CartSummary() {
-  const { cartItems, calcCartTotal } = useGlobalContext();
+  const { cartItems, calcCartTotal, setGrandTotal, grandTotal } =
+    useGlobalContext();
 
   const vat_included = calcCartTotal() * VAT;
   const total = calcCartTotal() + vat_included;
-  const grandTotal = total + SHIPPING;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("confirm purchase");
-  };
+  useEffect(() => {
+    setGrandTotal(total + SHIPPING);
+  }, [cartItems]);
 
   return (
     <section className="summary">
@@ -41,23 +41,22 @@ function CartSummary() {
       </div>
       <article className="expenses">
         <div className="expense">
-          total <span>${total} </span>
+          total <span>${total.toFixed(1)} </span>
         </div>
         <div className="expense">
           shipping <span>${SHIPPING} </span>
         </div>
         <div className="expense">
-          vat (included) <span>${vat_included} </span>
+          vat (included) <span>${vat_included.toFixed(1)} </span>
         </div>
       </article>
       <div className="grand-total">
-        grand total <span>${grandTotal} </span>
+        grand total <span>${grandTotal.toFixed(1)} </span>
       </div>
       <button
         type="submit"
         form="formCheckout"
         className="confirm-purchase-btn"
-        onClick={handleSubmit}
       >
         checkout
       </button>

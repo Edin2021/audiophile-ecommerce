@@ -161,12 +161,14 @@
       gap: 2rem;
     }
     .item {
+      gap: 1rem;
       .img-wrapper {
         min-width: 75px;
         width: 75px;
         height: 75px;
       }
       .details {
+        margin: 0;
         .name,
         .price {
           font-size: 5vw;

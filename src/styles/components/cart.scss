@@ -23,6 +23,10 @@
   visibility: hidden;
   opacity: 0;
   @include transition(opacity);
+  & > h2 {
+    text-align: center;
+    text-transform: capitalize;
+  }
   h4 {
     display: flex;
     justify-content: space-between;

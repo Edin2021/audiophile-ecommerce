@@ -11,14 +11,23 @@ const AppContext = React.createContext();
 
 export default function AppProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [grandTotal, setGrandTotal] = useState(0);
 
   useEffect(() => {
     setCartItems(getLocalStorage());
   }, []);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
-  // TODO  save cart items to local storage
+
+  useEffect(() => {
+    if (showModal) {
+      setCartItems([]);
+    }
+  }, [showModal]);
+
   const addToCart = (id, amount) => {
     // checking if cart already contains the item
     // using for loop instead of the some() array method for better performance
@@ -119,6 +128,10 @@ export default function AppProvider({ children }) {
         calcTotalItemAmount,
         removeCartItem,
         clearCart,
+        showModal,
+        setShowModal,
+        grandTotal,
+        setGrandTotal,
       }}
     >
       {children}
