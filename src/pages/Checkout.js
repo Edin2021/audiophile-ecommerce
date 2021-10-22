@@ -6,7 +6,7 @@ import ModalCheckout from "../components/ModalCheckout";
 import { useGlobalContext } from "../context";
 
 function Checkout() {
-  const { cartItems, showModal } = useGlobalContext();
+  const { cartItems } = useGlobalContext();
   return (
     <>
       <Header flag={"bcg-black"} />
