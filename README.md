@@ -1,6 +1,8 @@
 # Audiophile E-Commerce
 
-This is an e-commerce website where users can see products, add them to the cart and go through the purchase process with an order confirmation message at the end.
+Being an e-commerce-type website, I had to think strategically so all the parts and components would work together firmly. This project allowed me to learn crucial skills regarding any shop or sales-related website, from custom components to order confirmation.
+
+This website contains a homepage, product list page (PLP), product page (PDP), a checkout with form validation, and a mini cart, users can see products, add single or multiple at once to the cart and go through the purchase process with an order confirmation message at the end.
 
 ## [Website Link](https://audiophile-ecommerce.pages.dev/)
 
